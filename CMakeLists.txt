@@ -12,4 +12,3 @@ add_executable(qt-ui-lint
 )
 
 target_link_libraries(qt-ui-lint PRIVATE Qt6::Core)
-
