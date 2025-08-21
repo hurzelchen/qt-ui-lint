@@ -1,7 +1,8 @@
-#include <iostream>
+#include <QTextStream>
 
 int main(int argc, char** argv)
 {
-    std::cout << "Hello Qt UI lint!" << std::endl;
+    QTextStream cout(stdout);
+    cout << "Hello Qt UI lint!" << Qt::endl;
     return 0;
 }

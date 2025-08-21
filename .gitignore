@@ -1,5 +1,9 @@
-# Build directory
+# Build directories
 build/
+build-*/
+
+# IDE User files
+*.user
 
 # Prerequisites
 *.d
