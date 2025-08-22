@@ -12,6 +12,9 @@ public:
     class RunResult
     {
     public:
+        RunResult()
+            : m_findings{} {};
+
         const QList<Finding> &findings() const
         {
             return m_findings;
@@ -22,12 +25,7 @@ public:
         }
 
     private:
-        RunResult()
-            : m_findings{} {};
-
         QList<Finding> m_findings;
-
-        friend class Toolchain;
     };
 
     Tool();

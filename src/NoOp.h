@@ -8,4 +8,15 @@ class NoOp : public Checker, public Fixer
 public:
     NoOp();
     virtual ~NoOp() = default;
+
+    RunResult run(QSharedPointer<QDomElement> subject) override;
+
+private:
+    class ToolRegistration
+    {
+    public:
+        ToolRegistration();
+    };
+
+    static const ToolRegistration s_toolRegistration;
 };
