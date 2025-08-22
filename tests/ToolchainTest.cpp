@@ -14,7 +14,10 @@ private slots:
     // NOLINTNEXTLINE(readability-convert-member-functions-to-static)
     void noToolsDoNothing()
     {
-        QByteArray originalTestSubject;
+        QByteArray originalTestSubject = "<ui version=\"4.0\" >\n"
+                                         " <author></author>\n"
+                                         " <comment></comment>\n"
+                                         "</ui>";
         QByteArray testSubject(originalTestSubject);
 
         auto testSubjectPtr = QSharedPointer<QIODevice>{new QBuffer{&testSubject}};
