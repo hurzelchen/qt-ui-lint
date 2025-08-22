@@ -2,6 +2,10 @@
 build/
 build-*/
 
+# Backup files
+*~
+*.autosave
+
 # IDE User files
 *.user
 

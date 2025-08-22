@@ -37,8 +37,13 @@ repos:
               '-std=c++17',
               '-I/usr/include/x86_64-linux-gnu/qt5/',
               '-I/usr/include/x86_64-linux-gnu/qt5/QtCore/',
+              '-I/usr/include/x86_64-linux-gnu/qt5/QtTest/',
               '-I/usr/include/x86_64-linux-gnu/qt6/',
               '-I/usr/include/x86_64-linux-gnu/qt6/QtCore/',
+              '-I/usr/include/x86_64-linux-gnu/qt6/QtTest/',
+              '-Isrc/',
+              '-Ibuild/tests/ToolFactoryTest_autogen/include/',
+              '-Ibuild/tests/ToolchainTest_autogen/include/',
               ]
        files: '.*\.cpp$'
      - id: cppcheck
