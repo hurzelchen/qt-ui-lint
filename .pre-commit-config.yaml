@@ -26,6 +26,11 @@ repos:
     - id: remove-crlf
     - id: forbid-tabs
     - id: forbid-crlf
+ - repo: https://github.com/cheshirekow/cmake-format-precommit
+   rev: v0.6.10
+   hooks:
+    - id: cmake-format
+    - id: cmake-lint
  - repo: https://github.com/pocc/pre-commit-hooks
    rev: v1.3.5
    hooks:
@@ -33,18 +38,7 @@ repos:
       args: ['-i']
     - id: clang-tidy
       args: ['--config-file=.clang-tidy',
-             '--',
-             '-x', 'c++',
-             '-std=c++17',
-             '-isystem/usr/include/x86_64-linux-gnu/qt5/',
-             '-isystem/usr/include/x86_64-linux-gnu/qt5/QtCore/',
-             '-isystem/usr/include/x86_64-linux-gnu/qt5/QtTest/',
-             '-isystem/usr/include/x86_64-linux-gnu/qt6/',
-             '-isystem/usr/include/x86_64-linux-gnu/qt6/QtCore/',
-             '-isystem/usr/include/x86_64-linux-gnu/qt6/QtTest/',
-             '-Isrc/',
-             '-Ibuild/tests/ToolFactoryTest_autogen/include/',
-             '-Ibuild/tests/ToolchainTest_autogen/include/',
+             '-p=build/',
       ]
       files: '.*\.cpp$'
     - id: cppcheck

@@ -1,6 +1,4 @@
-qt_add_executable(ToolchainTest
-   ToolchainTest.cpp
-)
+qt_add_executable(ToolchainTest ToolchainTest.cpp)
 
 set_target_properties(ToolchainTest PROPERTIES OUTPUT_NAME toolchaintest)
 
@@ -11,9 +9,7 @@ target_link_libraries(ToolchainTest PRIVATE Qt6::Test)
 
 add_test(NAME ToolchainTest COMMAND toolchaintest)
 
-qt_add_executable(ToolFactoryTest
-   ToolFactoryTest.cpp
-)
+qt_add_executable(ToolFactoryTest ToolFactoryTest.cpp)
 
 set_target_properties(ToolFactoryTest PROPERTIES OUTPUT_NAME toolfactorytest)
 
