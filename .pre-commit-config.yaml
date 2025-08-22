@@ -25,3 +25,33 @@ repos:
      - id: remove-crlf
      - id: forbid-tabs
      - id: forbid-crlf
+ - repo: https://github.com/pocc/pre-commit-hooks
+   rev: v1.3.5
+   hooks:
+     - id: clang-format
+       args: ['-i']
+     - id: clang-tidy
+       args: ['--config-file=.clang-tidy',
+              '--',
+              '-x', 'c++',
+              '-std=c++17',
+              '-I/usr/include/x86_64-linux-gnu/qt5/',
+              '-I/usr/include/x86_64-linux-gnu/qt5/QtCore/',
+              '-I/usr/include/x86_64-linux-gnu/qt6/',
+              '-I/usr/include/x86_64-linux-gnu/qt6/QtCore/',
+              ]
+       files: '.*\.cpp$'
+     - id: cppcheck
+       args: ['--language=c++',
+              '--enable=all']
+     - id: cpplint
+       args: ['--filter=-build/header_guard,
+                        -build/include_order,
+                        -legal/copyright,
+                        -readability/nolint,
+                        -whitespace/braces,
+                        -whitespace/comments,
+                        -whitespace/indent,
+                        -whitespace/newline',
+              '--linelength=100'
+              ]
