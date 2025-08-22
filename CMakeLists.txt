@@ -7,8 +7,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Core)
 
+add_subdirectory(src)
+
 add_executable(qt-ui-lint
     src/main.cpp
 )
 
-target_link_libraries(qt-ui-lint PRIVATE Qt6::Core)
+target_link_libraries(qt-ui-lint PRIVATE qt-ui-lint-obj)
