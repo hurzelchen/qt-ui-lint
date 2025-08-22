@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Finding.h"
+
 #include <QList>
 #include <QSharedPointer>
 
@@ -12,7 +14,7 @@ public:
     class RunResult
     {
     public:
-        const QStringList &findings() const
+        const QList<Finding> &findings() const
         {
             return m_findings;
         }
@@ -25,7 +27,7 @@ public:
         RunResult()
             : m_findings{} {};
 
-        QStringList m_findings;
+        QList<Finding> m_findings;
 
         friend class Toolchain;
     };

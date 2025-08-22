@@ -1,21 +1,5 @@
-qt_add_executable(ToolchainTest ToolchainTest.cpp)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+include(qt-ui-lint-tests)
 
-set_target_properties(ToolchainTest PROPERTIES OUTPUT_NAME toolchaintest)
-
-target_link_libraries(ToolchainTest PRIVATE qt-ui-lint-obj)
-
-target_link_libraries(ToolchainTest PRIVATE Qt6::Core)
-target_link_libraries(ToolchainTest PRIVATE Qt6::Test)
-
-add_test(NAME ToolchainTest COMMAND toolchaintest)
-
-qt_add_executable(ToolFactoryTest ToolFactoryTest.cpp)
-
-set_target_properties(ToolFactoryTest PROPERTIES OUTPUT_NAME toolfactorytest)
-
-target_link_libraries(ToolFactoryTest PRIVATE qt-ui-lint-obj)
-
-target_link_libraries(ToolFactoryTest PRIVATE Qt6::Core)
-target_link_libraries(ToolFactoryTest PRIVATE Qt6::Test)
-
-add_test(NAME ToolFactoryTest COMMAND toolfactorytest)
+qt_ui_lint_add_test(ToolchainTest ToolchainTest.cpp)
+qt_ui_lint_add_test(ToolFactoryTest ToolFactoryTest.cpp)

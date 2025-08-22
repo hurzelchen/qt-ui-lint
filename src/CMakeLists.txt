@@ -1,6 +1,20 @@
-set(HEADERS Checker.h Fixer.h Tool.h Toolchain.h ToolFactory.h)
+set(HEADERS
+    Checker.h
+    Finding.h
+    Fixer.h
+    NoOp.h
+    Tool.h
+    Toolchain.h
+    ToolFactory.h)
 
-set(SOURCES Checker.cpp Fixer.cpp Tool.cpp Toolchain.cpp ToolFactory.cpp)
+set(SOURCES
+    Checker.cpp
+    Finding.cpp
+    Fixer.cpp
+    NoOp.cpp
+    Tool.cpp
+    Toolchain.cpp
+    ToolFactory.cpp)
 
 add_library(qt-ui-lint-obj OBJECT ${HEADERS} ${SOURCES})
 
