@@ -5,7 +5,12 @@ repos:
    rev: v4.6.0
    hooks:
     - id: check-added-large-files
+    - id: check-case-conflict
+    - id: check-executables-have-shebangs
     - id: check-merge-conflict
+    - id: check-symlinks
+    - id: check-yaml
+    - id: destroyed-symlinks
     - id: end-of-file-fixer
     - id: fix-byte-order-marker
     - id: mixed-line-ending
@@ -13,3 +18,10 @@ repos:
     #- id: no-commit-to-branch
     #  args: ['--branch', 'main']
     - id: trailing-whitespace
+ - repo: https://github.com/Lucas-C/pre-commit-hooks
+   rev: v1.5.5
+   hooks:
+     - id: remove-tabs
+     - id: remove-crlf
+     - id: forbid-tabs
+     - id: forbid-crlf
