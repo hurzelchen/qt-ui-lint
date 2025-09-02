@@ -9,6 +9,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+option(CODE_COVERAGE "Compile with code coverage analysis" OFF)
+
 find_package(Qt6 QUIET COMPONENTS Core Test)
 
 if(Qt6_FOUND)
@@ -23,6 +25,10 @@ endif()
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
+
+if(CODE_COVERAGE)
+    set(CMAKE_CXX_FLAGS "-coverage")
+endif()
 
 enable_testing()
 
