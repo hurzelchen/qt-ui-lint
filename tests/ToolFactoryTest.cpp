@@ -1,5 +1,7 @@
 #include "ToolFactory.h"
 
+#include "Tool.h"
+
 #include <QTest>
 
 class ToolFactoryTest : public QObject
@@ -14,6 +16,18 @@ private slots:
     void hasTools()
     {
         QVERIFY(ToolFactory::availableTools().count() > 0);
+    }
+
+    void allToolsKnowTheirName()
+    {
+        QStringList toolNames = ToolFactory::availableTools();
+
+        for (const QString &name : toolNames)
+        {
+            QList<QSharedPointer<Tool>> toolList = ToolFactory::getTools(toolNames);
+            QCOMPARE(toolList.count(), 1);
+            QCOMPARE(toolList[0]->name(), name);
+        }
     }
 
     void cleanupTestCase() {}

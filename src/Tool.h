@@ -31,5 +31,7 @@ public:
     Tool();
     virtual ~Tool() = default;
 
+    virtual const QString &name() const = 0;
+
     virtual RunResult run(QSharedPointer<QDomElement> subject) = 0;
 };

@@ -9,6 +9,8 @@ public:
     NoOp();
     virtual ~NoOp() = default;
 
+    const QString &name() const override;
+
     RunResult run(QSharedPointer<QDomElement> subject) override;
 
 private:
@@ -19,4 +21,6 @@ private:
     };
 
     static const ToolRegistration s_toolRegistration;
+
+    static const QString s_name;
 };
