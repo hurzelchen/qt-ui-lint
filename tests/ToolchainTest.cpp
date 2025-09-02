@@ -23,7 +23,7 @@ private slots:
         auto testSubjectPtr = QSharedPointer<QIODevice>{new QBuffer{&testSubject}};
         QList<QSharedPointer<Tool>> toolList{};
 
-        Toolchain toolchain{testSubjectPtr, toolList};
+        Toolchain toolchain{QString::fromLocal8Bit(__FUNCTION__), testSubjectPtr, toolList};
 
         Toolchain::RunResult runResult = toolchain.run();
 
@@ -45,7 +45,7 @@ private slots:
         auto testSubjectPtr = QSharedPointer<QIODevice>{new QBuffer{&testSubject}};
         QList<QSharedPointer<Tool>> toolList{};
 
-        Toolchain toolchain{testSubjectPtr, toolList};
+        Toolchain toolchain{QString::fromLocal8Bit(__FUNCTION__), testSubjectPtr, toolList};
 
         Toolchain::RunResult runResult = toolchain.run();
 

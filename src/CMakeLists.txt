@@ -19,5 +19,6 @@ set(SOURCES
 add_library(qt-ui-lint-obj OBJECT ${HEADERS} ${SOURCES})
 
 target_link_libraries(qt-ui-lint-obj PUBLIC ${QT_PREFIX}::Core)
+target_link_libraries(qt-ui-lint-obj PUBLIC ${QT_PREFIX}::Xml)
 
 target_include_directories(qt-ui-lint-obj PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

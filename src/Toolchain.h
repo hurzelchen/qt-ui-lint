@@ -14,7 +14,7 @@ public:
     class RunResult
     {
     public:
-        const QList<Finding> &findings() const
+        const QList<QSharedPointer<Finding>> &findings() const
         {
             return m_findings;
         }
@@ -27,17 +27,20 @@ public:
         RunResult()
             : m_findings{} {};
 
-        QList<Finding> m_findings;
+        QList<QSharedPointer<Finding>> m_findings;
 
         friend class Toolchain;
     };
 
-    Toolchain(const QSharedPointer<QIODevice> &subject, const QList<QSharedPointer<Tool>> &tools);
+    Toolchain(QString filename,
+              const QSharedPointer<QIODevice> &subject,
+              const QList<QSharedPointer<Tool>> &tools);
     virtual ~Toolchain() = default;
 
     RunResult run();
 
 private:
+    QString m_filename;
     QSharedPointer<QIODevice> m_subject;
     QList<QSharedPointer<Tool>> m_tools;
 };

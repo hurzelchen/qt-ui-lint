@@ -11,7 +11,7 @@ public:
 
     const QString &name() const override;
 
-    RunResult run(QSharedPointer<QDomElement> subject) override;
+    RunResult run(QDomDocument *subject) override;
 
 private:
     class ToolRegistration

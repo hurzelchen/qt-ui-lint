@@ -4,7 +4,7 @@
 
 #include <QSharedPointer>
 
-class QDomElement;
+class QDomDocument;
 
 class Tool
 {
@@ -15,7 +15,7 @@ public:
         RunResult()
             : m_findings{} {};
 
-        const QList<Finding> &findings() const
+        const QList<QSharedPointer<Finding>> &findings() const
         {
             return m_findings;
         }
@@ -25,7 +25,7 @@ public:
         }
 
     private:
-        QList<Finding> m_findings;
+        QList<QSharedPointer<Finding>> m_findings;
     };
 
     Tool();
@@ -33,5 +33,5 @@ public:
 
     virtual const QString &name() const = 0;
 
-    virtual RunResult run(QSharedPointer<QDomElement> subject) = 0;
+    virtual RunResult run(QDomDocument *subject) = 0;
 };

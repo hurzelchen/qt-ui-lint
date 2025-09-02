@@ -14,6 +14,7 @@ function(qt_ui_lint_add_test test_name)
 
     target_link_libraries("${test_name}" PRIVATE ${QT_PREFIX}::Core)
     target_link_libraries("${test_name}" PRIVATE ${QT_PREFIX}::Test)
+    target_link_libraries(qt-ui-lint-obj PRIVATE ${QT_PREFIX}::Xml)
 
     add_test(NAME "${test_name}" COMMAND "${output_name}")
 endfunction(qt_ui_lint_add_test)

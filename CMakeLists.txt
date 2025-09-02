@@ -11,12 +11,12 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 option(CODE_COVERAGE "Compile with code coverage analysis" OFF)
 
-find_package(Qt6 QUIET COMPONENTS Core Test)
+find_package(Qt6 QUIET COMPONENTS Core Test Xml)
 
 if(Qt6_FOUND)
     set(QT_PREFIX "Qt6")
 else()
-    find_package(Qt5 REQUIRED COMPONENTS Core Test)
+    find_package(Qt5 REQUIRED COMPONENTS Core Test Xml)
 
     if(Qt5_FOUND)
         set(QT_PREFIX "Qt5")
@@ -27,7 +27,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
 if(CODE_COVERAGE)
-    set(CMAKE_CXX_FLAGS "-coverage")
+    set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-coverage")
 endif()
 
 enable_testing()

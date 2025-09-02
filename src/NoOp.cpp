@@ -25,7 +25,8 @@ const QString &NoOp::name() const
     return s_name;
 }
 
-Tool::RunResult NoOp::run(QSharedPointer<QDomElement> /*subject*/)
+// NOLINTNEXTLINE(readability/casting)
+Tool::RunResult NoOp::run(QDomDocument * /*subject*/)
 {
     return {};
 }
